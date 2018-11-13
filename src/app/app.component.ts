@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
 
 declare var google;
 
@@ -16,7 +19,8 @@ export class AppComponent  {
   filteredMarkers = [];
 
   constructor(
-    private mapsAPILoader: MapsAPILoader
+    private mapsAPILoader: MapsAPILoader,
+    private http: HttpClient
   ) { }
 
   getLocations(): Array<{ latitude: number, longitude: number, label: String, draggable: boolean }> {
