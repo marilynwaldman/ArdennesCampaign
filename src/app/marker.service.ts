@@ -17,7 +17,7 @@ export class MarkerService {
   private url: string;
 
   constructor(private httpClient: HttpClient ) {
-    this.url = 'http://localhost:4200/assets/marker.json';
+    this.url = 'http://localhost:4200/assets/mapMarkers.json';
   }
 
   getMarkers() {
